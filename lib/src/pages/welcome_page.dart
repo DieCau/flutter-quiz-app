@@ -1,4 +1,6 @@
 
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -13,25 +15,31 @@ class WelcomePage extends StatelessWidget {
           SvgPicture.asset('assets/icons/bg.svg', fit: BoxFit.cover, width: double.infinity,),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Spacer(flex: 2),
-                  Text("Let's Play Quiz,",
+                  Text('Vamos a QuizzAR,',
                     style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.bold) 
                   ),
-                  const Text('Enter your information below'),
+                  const Text('Ingresa Tu Información para Jugar...'),
                   const Spacer(),
-                  const TextField(
+                  TextFormField(
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xFF1C2341),
-                      hintText: 'Full Name',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12))
-                      )
-                    ),
+                      fillColor: const Color(0xFF1C2341),
+                      border: InputBorder.none,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Color(0xFF00FFCB)),
+                        borderRadius: BorderRadius.circular(10)),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Color(0xFF00FFCB)),
+                        borderRadius: BorderRadius.circular(10)),
+                      prefixIcon: const Icon(Icons.sports_esports_outlined, color: Color(0xFF00FFCB),),
+                      labelText: 'Jugador',
+                      labelStyle: const TextStyle(color: Color(0xFF00FFCB)),                                              
+                    )
                   ),
                   const Spacer(),
                   InkWell(
@@ -45,10 +53,10 @@ class WelcomePage extends StatelessWidget {
                           colors: [Color(0xFF46A0AE), Color(0xFF00FFCB)],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,),
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                       child: Text(
-                        'Lets Start Quiz',
+                        'Comencemos a QuizAR!',
                         style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.black)                  
                       ),
                     ),

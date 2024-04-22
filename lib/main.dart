@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizz_app/src/pages/welcome_page.dart';
+import 'package:quizz_app/src/pages/quizz_page.dart';
 
 void main() => runApp(const QuizzApp());
 
@@ -12,7 +12,7 @@ class QuizzApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       theme: ThemeData.dark(),
-      home: const WelcomePage()
+      home: const QuizzPage()
     );
   }
 }
