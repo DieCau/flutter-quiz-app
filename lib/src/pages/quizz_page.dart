@@ -17,10 +17,13 @@ class QuizzPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          TextButton(
-            onPressed: () { print('Holaaaaaa'); }, 
-            style: TextButton.styleFrom(textStyle: const TextStyle(fontSize: 16)),
-            child: const Text('Skip'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: TextButton(
+              onPressed: () { print('Holaaaaaa'); }, 
+              style: TextButton.styleFrom(textStyle: const TextStyle(fontSize: 14)),
+              child: const Text('Skip'),
+            ),
           ),
         ],
       ),

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quizz_app/src/models/questions.dart';
 
 class QuestionController extends GetxController with GetSingleTickerProviderStateMixin {
   
@@ -8,6 +9,18 @@ class QuestionController extends GetxController with GetSingleTickerProviderStat
   late Animation _animation;
 
   Animation get animation => _animation;
+
+  final List<Question> _questions = sampleData
+  .map(
+    (question) => Question(
+    id: question['id'], 
+    answer: question['answer_index'], 
+    question: question['question'], 
+    options: question['options'])
+    ).toList();
+
+    List<Question> get questions => _questions;
+
 
   @override
   void onInit() {

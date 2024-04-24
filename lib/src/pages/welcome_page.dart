@@ -21,7 +21,7 @@ class WelcomePage extends StatelessWidget {
                 children: [
                   const Spacer(flex: 2),
                   Text('Vamos a QuizzAR,',
-                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.bold) 
+                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colors.white, fontWeight: FontWeight.bold) 
                   ),
                   const Text('Ingresa Tu Información para Jugar...'),
                   const Spacer(),

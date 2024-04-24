@@ -14,7 +14,7 @@ class Question {
 const List sampleData = [
   {
     'id'       : 1,
-    'question' : 'Flutter es un SDK de Interfaz de Usuario de Código Abierto creado por...',
+    'question' : 'Flutter es un SDK de UI de código abierto creado por...',
     'options'   : ['Google', 'Apple', 'Facebook', 'Microsoft'],
     'answer_index' : 1,
   },
