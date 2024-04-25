@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quizz_app/constants.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:quizz_app/src/constants.dart';
 import 'package:quizz_app/src/controllers/question_controller.dart';
 
 class Option extends StatelessWidget {

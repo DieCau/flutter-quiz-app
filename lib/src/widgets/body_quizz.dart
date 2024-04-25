@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quizz_app/constants.dart';
+import 'package:quizz_app/src/constants.dart';
 import 'package:quizz_app/src/controllers/question_controller.dart';
 import 'package:quizz_app/src/widgets/progress_bar.dart';
 import 'package:quizz_app/src/widgets/question_card.dart';
