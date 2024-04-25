@@ -17,7 +17,7 @@ class QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-  QuestionController _controller = Get.put(QuestionController());
+  QuestionController controller = Get.put(QuestionController());
     
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -40,7 +40,7 @@ class QuestionCard extends StatelessWidget {
             (index) => Option(
               index: index, 
               text: question.options[index], 
-              press: ()=> _controller.checkAns(question, index)
+              press: ()=> controller.checkAns(question, index)
             ),
           )
         ],

@@ -1,6 +1,6 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quizz_app/src/controllers/question_controller.dart';
 import 'package:quizz_app/src/widgets/body_quizz.dart';
 
 class QuizzPage extends StatelessWidget {
@@ -9,7 +9,7 @@ class QuizzPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
+    QuestionController controller = Get.put(QuestionController());
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -20,7 +20,9 @@ class QuizzPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: TextButton(
-              onPressed: () { print('Holaaaaaa'); }, 
+              onPressed: () {
+                controller.nextQuestion;
+              }, 
               style: TextButton.styleFrom(textStyle: const TextStyle(fontSize: 14)),
               child: const Text('Skip'),
             ),

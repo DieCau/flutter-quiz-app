@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quizz_app/src/pages/quizz_page.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:quizz_app/src/pages/welcome_page.dart';
 
 void main() => runApp(const QuizzApp());
 
@@ -8,11 +9,11 @@ class QuizzApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       theme: ThemeData.dark(),
-      home: const QuizzPage()
+      home:  const WelcomePage()
     );
   }
 }

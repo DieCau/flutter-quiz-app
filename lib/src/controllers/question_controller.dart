@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quizz_app/src/models/questions.dart';
+import 'package:quizz_app/src/pages/score_page.dart';
 
 class QuestionController extends GetxController with GetTickerProviderStateMixin {
   
@@ -53,7 +53,7 @@ class QuestionController extends GetxController with GetTickerProviderStateMixin
       update();
     });
 
-    _animationController.forward();
+    _animationController.forward().whenComplete(nextQuestion);
 
     _pageController = PageController();
 
@@ -78,17 +78,26 @@ class QuestionController extends GetxController with GetTickerProviderStateMixin
     update(); 
 
     Future.delayed(const Duration(seconds: 3), (){
+      nextQuestion();
+    });
+  }
+  void nextQuestion() {
+    if (_questionNumber.value != _questions.length) {
       _isAnswered = false;
-      _pageController.nextPage(
-        duration: const Duration(milliseconds: 250), curve: Curves.ease);
+      _pageController.nextPage(duration: const Duration(milliseconds: 250), curve: Curves.ease);
 
       _animationController.reset();
 
-      _animationController.forward();
-
-    });
+      _animationController.forward().whenComplete(nextQuestion);      
+    } 
+    else {
+      Get.to(const ScorePage());
+    } 
+   
   }
 
-
+  void updateTheQnNum(int index){
+    _questionNumber.value = index + 1;
+  }
 }
 

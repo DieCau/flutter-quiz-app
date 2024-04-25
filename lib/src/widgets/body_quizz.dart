@@ -12,7 +12,7 @@ class BodyQuizz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    QuestionController _questionController = Get.put(QuestionController()); 
+    QuestionController questionController = Get.put(QuestionController()); 
 
     return Stack(
       children: [
@@ -27,24 +27,22 @@ class BodyQuizz extends StatelessWidget {
               const SizedBox(height: quizzDefaultPadding,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: quizzDefaultPadding),
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Pregunta 1',
-                    style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(color: quizzGrayColor),
-                    children: [
-                      TextSpan(
-                        text: '/10',
+                child: Obx(() => RichText(
+                    text: TextSpan(
+                        text: 'Pregunta ${questionController.questionNumber.value}',
                         style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(color: quizzGrayColor)
-                      )
-                    ]
-                  )
-                ),
+                            .textTheme
+                            .headlineLarge!
+                            .copyWith(color: quizzGrayColor),
+                        children: [
+                      TextSpan(
+                          text: '/${questionController.questions.length}',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(color: quizzGrayColor))
+                    ])),
+              )
               ),
               const Divider(
                 thickness: 1.5,
@@ -53,10 +51,11 @@ class BodyQuizz extends StatelessWidget {
               Expanded(
                 child: PageView.builder(
                   physics: const NeverScrollableScrollPhysics(),
-                  controller: _questionController.pageController,
-                  itemCount: _questionController.questions.length,
+                  controller: questionController.pageController,
+                  onPageChanged: questionController.updateTheQnNum,
+                  itemCount: questionController.questions.length,
                   itemBuilder: (context, index) => QuestionCard(
-                    question: _questionController.questions[index]),
+                    question: questionController.questions[index]),
                   )
                 ),
             ],

@@ -1,8 +1,7 @@
-
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:quizz_app/src/pages/quizz_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -43,7 +42,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   const Spacer(),
                   InkWell(
-                    onTap: ()=> print('Click en Lets'),
+                    onTap: () => Get.to(const QuizzPage()),
                     child: Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(20 * 0.75),
